@@ -29,32 +29,13 @@ export default {
     height: 100px;
     background-color: blue;
     }
-#beer-info {
-  display: flex;
-  
-}
+
 p {
   font: 13px Futura;
     display: flex;
-    
-    
-
   
 }
-li {
-  font: 10px Futura;
-}
-#picture {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  padding: 20px;
-}
-#ingredientsContainer {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 60px;
-}
+
 #film-text {
   margin-left: 1000%;
   margin-right: 10%;
@@ -67,11 +48,5 @@ img {
 h3 {
   font: bold 15px Futura;
 }
-.ingredient {
-  padding-left: 15px;
-  padding-right: 30px;
-  border-radius: 25px;
-  border: 2px solid dodgerblue;
-  background-color: white;
-}
+
 </style>

@@ -42,10 +42,7 @@ export default {
 </script>
 
 <style>
-  #h1 {text-align: center;
-  background-color: aqua;
-    
-  }
+  
   .main-container {
     display: flex;
     justify-content: space-between;
