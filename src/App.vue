@@ -1,28 +1,53 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="main-container">
+      <h1>Films</h1>
+      <films-list :films='films'></films-list>
+      <film-detail :film='selectedFilm'></film-detail>
+    
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import { eventBus } from './main.js'
+  import FilmsList from './components/FilmsList.vue';
+  import FilmsDetail from './components/FilmsDetail.vue';
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+   name: 'app',
+   data(){
+     return {
+       films: [],
+       selectedFilm: null
+     };
+   
+  },
+   mounted(){
+     fetch("https://ghibliapi.herokuapp.com/films")
+     .then( res => res.json())
+     .then(films => this.films = films)
+     eventBus.$on('film-selected', (film) => {
+       this.selectedFilm = film;
+   })
+     },
+    components: {
+      "films-list": FilmsList,
+      "film-detail": FilmsDetail, 
+   
+
+    }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #h1 {text-align: center;
+  background-color: aqua;
+    
+  }
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
